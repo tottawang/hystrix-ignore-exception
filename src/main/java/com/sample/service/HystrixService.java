@@ -30,7 +30,7 @@ public class HystrixService {
 
   @HystrixCommand(groupKey = HttpWebClient.GROUP, commandKey = HttpWebClient.COMMAND_GET,
       threadPoolKey = HttpWebClient.THREAD_POOL_KEY,
-      ignoreExceptions = {HystrixRuntimeException.class})
+      ignoreExceptions = {IgnoreRuntimeException.class})
   public String getContent() {
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(org.springframework.http.MediaType.APPLICATION_JSON);
@@ -47,7 +47,7 @@ public class HystrixService {
     } catch (Throwable ex) {
       // any non sever side exception should be ignored by Hystirx so that no
       // HystrixRuntimeException can be thrown
-      throw new HystrixRuntimeException(
+      throw new IgnoreRuntimeException(
           "client exception, can be ingored for hystrix circuit breaker: " + ex.getMessage(), ex);
     }
   }
