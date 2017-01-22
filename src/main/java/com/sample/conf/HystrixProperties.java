@@ -12,7 +12,6 @@ public class HystrixProperties {
   private Integer timeout = Integer.valueOf(30000);
   private Boolean timeoutEnabled = Boolean.TRUE;
   private Integer corePool = Integer.valueOf(32);
-  private Integer tmsPool = Integer.valueOf(3);
   private Integer maxQueue = Integer.valueOf(256);
   private Integer queueRejectionThreshold = Integer.valueOf(256);
 
@@ -38,14 +37,6 @@ public class HystrixProperties {
 
   public void setCorePool(Integer corePool) {
     this.corePool = corePool;
-  }
-
-  public Integer getTmsPool() {
-    return tmsPool;
-  }
-
-  public void setTmsPool(Integer tmsPool) {
-    this.tmsPool = tmsPool;
   }
 
   public Integer getMaxQueue() {
